@@ -1,0 +1,52 @@
+1. database
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+npm install
+npm run dev
+Changes in User Table by:
+add table in database/.php files
+migrate database
+php artisan migrate
+
+2. login
+resources/views/auth/.php files
+
+app/models/user.php
+change protected $fillable to match register components
+
+app/actions/fortify/createnewuser
+change returen user::create
+
+to add admin
+providers/routeservice
+public const HOME (dashboard->redirect)
+
+routes/web.php
+route::get('/redirect',[HomeController::ckass,'redirect
+user App\Http\Controller\HomeController;
+cmd- php artisan make:controller HomeController
+
+Http/Controller/HomeController
+use App\Models\User;
+user Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+public function redirect()
+{
+	$usertype=Auth::user()->usertype;
+	if($usertype=='1')
+	{
+		return view('admin.home');
+	}
+	else
+	{
+		return view('dashboard');
+	}
+}
+
+make admin foler and page under views/admin
+
+add logout copy dashboard open and close elements
+
+session
+welcome.blade.php
+line 28 control the session redirection
