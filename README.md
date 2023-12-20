@@ -11,8 +11,8 @@
 4. Add these lines into database/migrations/<DATE>_000000_create_users_table.php at line 18
    <br>`$table->string('usertype')->default(0);`
    <br>`$table->string('phone')->nullable();`<br>
-   `$table->string('address')->nullable();<br>
-   `
+   `$table->string('address')->nullable();
+   `<br>
 5. Migrate the database by running:
    <br>`php artisan migrate`<br>
 
